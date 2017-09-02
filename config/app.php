@@ -177,6 +177,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Hootlex Friendships Service Provider
+         */
+        Hootlex\Friendships\FriendshipsServiceProvider::class,
+
+        /*
+         * Jrean User Verification Service Provider
+         */
+        Jrean\UserVerification\UserVerificationServiceProvider::class,
+
     ],
 
     /*
@@ -225,7 +235,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
     ],
 
 ];
