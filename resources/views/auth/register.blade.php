@@ -6,14 +6,6 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
-                @if(Session::has('alert'))
-                    <div class="alert alert-success">
-                        {{ Session::get('alert') }}
-                        @php
-                            Session::forget('alert');
-                        @endphp
-                    </div>
-                @endif
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -77,6 +69,14 @@
                         </div>
                     </form>
                 </div>
+                @if(Session::has('alert'))
+                    <div class="alert alert-success">
+                        {{ Session::get('alert') }}
+                        @php
+                            Session::forget('alert');
+                        @endphp
+                    </div>
+                @endif
             </div>
         </div>
     </div>
