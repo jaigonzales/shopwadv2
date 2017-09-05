@@ -7,3 +7,352 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "mixins"; // Typography
+@import "bootstrap-hooks"; // Mixins
+@import "typography"; // Screen
+@import "screen"; // Portable
+@import "portable"; // Mobile
+@import "mobile"; // Buttons
+@import "buttons"; // Forms
+@import "forms"; // Main style
+[v-cloak] {  display: none; }
+body,
+html {
+  background-color: #fff;
+  color: #000;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.short-line {
+  border-bottom: 4px solid $link-color;
+  display: inline-block;
+  margin: 2em 0;
+  width: 80px;
+}
+
+.dropdown-menu {
+  li {
+    a {
+      .fa-pencil {
+        padding: 4px 5px;
+      }
+
+      .fa-trash {
+        padding: 4px 5px;
+      }
+    }
+  }
+}
+
+.divider {
+  width: 100%;
+  border-bottom: 1px solid $shadow-gray;
+  display: inline-block;
+  color: $shadow-gray;
+  height: 14px;
+
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    background: #fff;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+.profile-header {
+  margin-top: -22px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  // background-color: $main-bg;
+
+  h1 {
+    color: #000;
+  }
+
+  p {
+    color: #f5f5f5;
+  }
+  .page-title{
+    color: #000;
+    font-size: 1.8em;
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+.main-lists-header {
+  margin-bottom: 1em;
+
+  &:after {
+    display: block;
+    height: 0;
+    content: "";
+    clear: both;
+  }
+
+  .control-group {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+  }
+}
+
+.sidebar {
+  margin-top: 64px;
+}
+
+.create-list-form {
+  background-color: #f5f5f5;
+  padding: 12px;
+}
+// User List
+
+.shoplists-list{
+  margin-top: 32px;
+
+}
+.shoplist-item, .profile-shoplist {
+  position: relative;
+  background: url('/images/bagIcon.png') no-repeat;
+  background-position-x: 8px;
+  background-position-y: center;
+}
+
+
+.list-content {
+  position: relative;
+  margin-left: 3em;
+
+  .user-list-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .tiny-opt-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.list-toolbar {
+  background-color: $light-gray;
+  padding: 2px 8px;
+  margin-top: 8px;
+
+  i {
+    font-size: 18px;
+  }
+}
+
+.toolbar {
+  background-color: $light-gray;
+  border-top: 1px solid $light-sky;
+  border-bottom: 1px solid $light-sky;
+}
+
+.shoplist-toolbar {
+  button {
+    display: inline-block;
+  }
+}
+
+.empty-list-container{
+  background: #daead1;
+  border: 3px dashed #fff;
+  height: 300px;
+  width: 100%;
+  @include border-radius(10px);
+  text-align: center;
+}
+
+.empty-shoplist{
+  background: #f1f1f1;
+  border: 3px dashed #ffffff;
+  height: 300px;
+  width: 100%;
+  @include border-radius(10px);
+  text-align: center;
+}
+
+.create-btn{
+  background: #daead1;
+  border: 3px dashed #fff;
+  text-align: center;
+  padding: 1em;
+  @include border-radius(10px);
+}
+
+// products list
+ul.products {
+  list-style-type: none;
+  margin: 1em 0 0;
+  padding: 0;
+
+  li.product-item {
+    .product-contents {
+      max-width: 590px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          text-align: center;
+          display: inline-block;
+          margin-right: 8px;
+          text-transform: capitalize;
+          .detail{
+            padding: 2px 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .product-opts {
+    margin-top: 1em;
+  }
+}
+.v-paginator{
+  margin-top: 1em;
+  text-align: center;
+}
+// Sections
+
+footer {
+  margin-top: 48px;
+  text-align: center;
+}
+
+// Welcome page
+#homepage-slide{
+  padding-top: 86px;
+  background: #fff url('/images/banner_image.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 450px;
+  margin-top: -22px;
+}
+
+// Search results
+.search-panel{
+  background: $light-gray;
+  border-bottom: 1px solid #f1f1f1;
+  margin-top: -24px;
+}
+ul.search-results-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  .search-res-item{
+    padding: 6px 6px;
+    margin-bottom: 6px;
+    border: 1px solid #f5f5f5;
+    margin-bottom: 8px;
+    -webkit-box-shadow: 2px 4px 5px 0px rgba(218, 218, 218, 0.25);
+    -moz-box-shadow: 2px 4px 5px 0px rgba(218, 218, 218, 0.25);
+    box-shadow: 2px 4px 5px 0px rgba(218, 218, 218, 0.25);
+  }
+}
+
+ul.requests-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li{
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f3f3;
+  }
+}
+
+.badge-table{
+  font-size: 0.8em;
+  tr {
+    td{
+
+      padding-right: 6px;
+      padding-left: 6px;
+      &:first-child{
+        border-left: none;
+        padding-left: none;
+      }
+    }
+  }
+}
+
+.friends-widget{
+  &:after{
+    display: block;
+    height: 0;
+    content: '';
+    clear: both;
+  }
+}
+
+.invite-btn-list{
+  list-style-type: none;
+  margin-top: 1em;
+  padding: 0;
+  li{
+    margin-bottom: 2px;
+    a{
+      display: block;
+      padding: 12px;
+      color: #fff;
+      text-decoration: none;
+
+      &.facebook{
+        background: #3b5998;
+      }
+      &.twitter{
+        background: #1da1f2;
+      }
+      &.email{
+        background: #eb1d25;
+      }
+      &:hover{
+        text-decoration: none;
+        opacity: 0.9
+      }
+      i{
+        margin-right: 12px;
+      }
+    }
+  }
+}
+.profile-shoplists{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li.profile-shoplist{
+    display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f5f5f5;
+    a{
+      text-decoration: none;
+      color: #000
+    }
+  }
+}
+
+.settings_item{
+  display: block;
+  padding: 12px 4px;
+  border-bottom: 1px solid #e9ebee;
+  &:after{
+    display: block;
+    content: '';
+    height: 0;
+    clear: both;
+  }
+  &:hover{
+    background: $light-gray
+  }
+}

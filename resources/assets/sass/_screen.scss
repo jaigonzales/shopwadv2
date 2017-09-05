@@ -1,0 +1,140 @@
+// screen
+
+.m-b-md {
+  margin-bottom: 30px;
+}
+
+// Profile
+
+.prof-pic {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid $laravel-border-color;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0 auto;
+  margin-bottom: 8px;
+  .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  img {
+    height: 100%;
+    width: auto;
+    margin: auto;
+  }
+
+}
+
+.settings-photo{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid $laravel-border-color;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0 auto;
+  margin-bottom: 8px;
+  .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  img {
+    height: 100%;
+    width: auto;
+    margin: auto;
+  }
+}
+
+.user-md-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid $laravel-border-color;
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+.user-sm-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid $laravel-border-color;
+  overflow: hidden;
+  margin-right: 4px;
+  text-align: center;
+  box-sizing: border-box;
+  &:hover {
+    border-color: #a3d48b;
+    opacity: 0.8
+  }
+  img {
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    margin-left: -2px;
+    margin-top: -2px;
+    vertical-align: middle;
+    display: block;
+  }
+}
+
+#main-content {
+  min-height: 500px;
+}
+
+.shopbag-content,
+.shoplist-content {
+  min-height: 500px;
+}
+
+#search-content {
+  min-height: 500px;
+}
+
+.friends-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    float: left;
+    margin-right: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+.avatar-preview{
+  width: 290px;
+  height: 290px;
+  overflow: hidden;
+  margin: 0 auto;
+  text-align: center;
+  img{
+    display: block;
+    margin: 0 auto;
+    min-width: 290px;
+    min-height: 290px;
+    max-width: 290px;
+    max-height: 290px;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+  }
+}

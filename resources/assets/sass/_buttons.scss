@@ -1,0 +1,57 @@
+
+.btn-social{
+    display: inline-block;
+}
+.btn-icon{
+
+}
+.btn-facebook{
+    @include reverse-outline-button($facebook-color);
+    @include border-radius(50px);
+    padding: 4px 11px;
+    cursor: pointer;
+}
+.btn-twitter{
+    @include reverse-outline-button(#1b95e0);
+    @include border-radius(50px);
+    padding: 4px 8px 4px 9px;
+    cursor: pointer;
+}
+.plainButton{
+    background-color: none;
+    background: none;
+    color: #365899;
+    border: none;
+    font-size: 12px;
+    i{
+        color: #fff;
+    }
+    &:hover{
+        i{
+            color: #365899;
+        }
+    }
+}
+.file-btn{
+    padding: 4px 6px;
+    border: 1px solid #d2f3f8;
+    cursor: pointer;
+    &:hover{
+        background: #d0f3f5;
+    }
+}
+
+#upload-img-area{
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  width: 290px;
+  background-color: #000;
+  color: #fff !important;
+  display: block;
+  margin: 6px auto;
+  cursor: pointer;
+  &:hover{
+    background: #333;
+  }
+}

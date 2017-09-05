@@ -52,11 +52,26 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $attributeNames = array(
+            'firstname' => 'first name',
+            'lastname' => 'last name',
+            'email' => 'email',
+            'dob-month' => 'birth month',
+            'dob-day' => 'birth day',
+            'dob-year' => 'birth year',
+            'gender' => 'gender'
+        );
+
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-        ]);
+            'dob-month' => 'required',
+            'dob-day' => 'required',
+            'dob-year' => 'required',
+            'gender' => 'required',
+        ])->setAttributeNames($attributeNames);
     }
 
     /**
@@ -68,9 +83,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'birthday' => $data['dob-year'] . '/' . $data['dob-month'] . '/' . $data['dob-day'],
+            'gender' => $data['gender'],
         ]);
     }
 
@@ -91,7 +109,6 @@ class RegisterController extends Controller
         $this->guard()->login($user);
 
         UserVerification::generate($user);
-
         UserVerification::send($user, 'My Custom E-mail Subject');
 
         return back()->withAlert('Register successfully, please verify your email.');

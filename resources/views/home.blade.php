@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                    {{ Auth::user()->getFriends() }}
                 </div>
             </div>
         </div>

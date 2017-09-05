@@ -19,6 +19,7 @@ $brand-danger: #bf5329;
 // Typography
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $font-family-sans-serif: "Raleway", sans-serif;
+$font-family-default: Arial, sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
@@ -36,3 +37,15 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+// Custom colors
+$neon-green: #49fb35;
+$link-color: #6eb34c;
+$link-color-hover: #2ab27b;
+$shadow-gray: #cccccc;
+$facebook-color: #3b5998;
+$tomato: #f46948;
+$light-gray: #fbfbfb;
+$light-sky: #d3e0e9;
+$label-color: #56aebd;
+$main-bg: #f5f5f5;

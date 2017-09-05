@@ -4,18 +4,27 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Hootlex\Friendships\Traits\Friendable;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use Friendable;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstname',
+        'lastname',
+        'email',
+        'password',
+        'birthday',
+        'gender',
+        'avatar',
+        'provider_user_id',
+        'provider',
     ];
 
     /**

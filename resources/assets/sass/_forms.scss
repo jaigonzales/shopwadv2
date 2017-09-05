@@ -1,0 +1,38 @@
+/* Form style */
+
+.btn-no-border{
+    border: none;
+    background-color: transparent;
+    margin: 4px;
+    padding: 0;
+    @include border-radius(5px);
+}
+.btn-fat{
+    padding: 8px 12px;
+}
+.btn-norm{
+    padding: 4px 8px;
+}
+
+.btn-gray{
+    border: none;
+    &:hover, &:active, &:focus{
+        background: $shadow-gray;
+    }
+}
+
+.btn-green{
+    border: none;
+    &:hover, &:active, &:focus{
+        background-color: $link-color;
+        color: #fff;
+    }
+}
+
+.btn-tomato{
+    border: none;
+    &:hover, &:active, &:focus{
+        background-color: $tomato;
+        color: #fff;
+    }
+}

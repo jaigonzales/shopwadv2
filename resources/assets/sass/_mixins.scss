@@ -1,0 +1,72 @@
+
+@mixin outline-button($color){
+    border: 1px solid $color;
+    color: $color;
+    background-color: transparent;
+    -webkit-transition: background-color 300ms linear, color 300ms linear;
+    -moz-transition: background-color 300ms linear, color 300ms linear;
+    -o-transition: background-color 300ms linear, color 300ms linear;
+    -ms-transition: background-color 300ms linear, color 300ms linear;
+    transition: background-color 300ms linear, color 300ms linear;
+    &:hover{
+        background-color: $color;
+        color: #fff;
+    }
+}
+
+
+@mixin reverse-outline-button($color){
+    border: 1px solid $color;
+    color: #fff;
+    background-color: $color;
+
+    -webkit-transition: background-color 300ms linear, color 300ms linear;
+    -moz-transition: background-color 300ms linear, color 300ms linear;
+    -o-transition: background-color 300ms linear, color 300ms linear;
+    -ms-transition: background-color 300ms linear, color 300ms linear;
+    transition: background-color 300ms linear, color 300ms linear;
+    &:hover{
+        background-color: transparent;
+        color: $color;
+
+    }
+}
+
+@mixin border-radius($size) {
+    border-radius: $size;
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+}
+
+$fa-css-prefix: 'fa';
+.#{$fa-css-prefix}-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+.#{$fa-css-prefix}-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}

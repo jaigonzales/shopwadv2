@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -14,6 +16,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware(['auth', 'isVerified']);
+//        $this->middleware('auth');
     }
 
     /**
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = User::find(Auth::id());
+        $user->getFriends();
         return view('home');
     }
 }
