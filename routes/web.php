@@ -52,6 +52,8 @@ Route::get('/shoplist', 'ProductController@getProductsOfCurrentShoplist', array(
  * Update Avatar Route
  */
 Route::get('/avatar', 'SettingsController@avatar')->name('avatar')->middleware('auth');
+Route::any('/update-avatar', 'SettingsController@updateAvatar')->name('update-avatar');
+
 
 /*
  * Search Users Route

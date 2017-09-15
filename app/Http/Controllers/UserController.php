@@ -49,12 +49,25 @@ class UserController extends Controller
                 $shoplistTotal = $shoplist->count();
                 $productTotal = $product->count();
 
-                $shoplists = $shoplist->orderBy('created_at', 'DESC')->paginate(5);
+
+                if ( Auth::check() ) {
+                    if ( $user->isFriendWith($recipient) ) {
+                        $theshoplists = $shoplist->where('privacy', '<>', 2);
+                    } else {
+                        $theshoplists = $shoplist->where('privacy', 0);
+                    }
+                }else{
+                    $theshoplists = $shoplist->where('privacy', 0);
+                }
+
+                $shoplists = $theshoplists->orderBy('created_at', 'DESC')->paginate(5);
+
 
                 $user = User::find(\Request::query('pid'));
                 $getAllFriends = $user->getFriends();
 
                 $getFriendsTotal = $user->getFriendsCount();
+
 
             } catch (\Exception $e) { }
 
@@ -78,6 +91,7 @@ class UserController extends Controller
         $shoplist = null;
         $shoplistTotal = null;
         $productTotal = null;
+
 
         try {
             $user = User::find($request->input('pid'));

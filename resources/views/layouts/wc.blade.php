@@ -34,15 +34,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <!-- Load Facebook SDK for JavaScript -->
 
+    <style type="text/css">
+        body{
+
+        }
+        .content{  }
+    </style>
 
         <script>
             window.ShopWad = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
         </script>
-
 </head>
 <body>
 <script>
