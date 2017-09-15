@@ -12,7 +12,7 @@ const  mix  = require('laravel-mix');
  */
 
 mix.options({
-    extractVueStyles: true
+    extractVueStyles: false
 });
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');

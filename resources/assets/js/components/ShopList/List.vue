@@ -20,8 +20,24 @@
                     <span class="vdots"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="#" @click.prevent="onEdit()" data-toggle="modal" data-target="#edit-list-form"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
-                    <li><a href="#" @click.prevent="onDelete(li.id)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li>
+                    <li class="dropdown-header">Actions</li>
+                    <li>
+                        <a href="#" @click.prevent="onEdit()" data-toggle="modal" data-target="#edit-list-form">
+                            Edit
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" @click.prevent="onDelete(li.id)">
+                            Delete
+                        </a>
+                    </li>
+                    <li class="dropdown-header">Share it</li>
+                    <li>
+                        <a href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs" @click.prevent=""><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a>
+                    </li>
+                    <li>
+                        <a :href="shareLink"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -75,7 +91,13 @@
 <script>
 import axios from 'axios';
 
+var protocol = location.protocol;
+var slashes = protocol.concat("//");
+var host = slashes.concat(window.location.hostname);
+
 export default {
+
+
     // Properties
     props: ['li', 'userid'],
     data() {
@@ -85,7 +107,8 @@ export default {
             editTitle: this.li.title,
             editDesc: this.li.desc,
             editPrivacy: this.li.privacy,
-            _shDateCreated: ''
+            _shDateCreated: '',
+            shareLink: host + '/p_shoplist?pid=' + this.userid + '&swid=' + this.li.id
         }
     },
     mounted: function(){
