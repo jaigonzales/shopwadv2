@@ -33,7 +33,7 @@
                     </li>
                     <li class="dropdown-header">Share it</li>
                     <li>
-                        <a :href="this.fbShare" @click.prevent=""><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a>
+                        <a href="#" @click.prevent="fbShareFunc"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a>
                     </li>
                     <li>
                         <a :href="shareLink"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
@@ -108,8 +108,7 @@ export default {
             editDesc: this.li.desc,
             editPrivacy: this.li.privacy,
             _shDateCreated: '',
-            shareLink: encodeURI(host + '/p_shoplist?pid=' + this.userid + '&swid=' + this.li.id),
-            fbShare: "https://www.facebook.com/dialog/share?app_id=229606804216824&display=popup&href=" + shareLink
+            shareLink: host + '/p_shoplist?pid=' + this.userid + '&swid=' + this.li.id
         }
     },
     mounted: function(){
@@ -214,9 +213,20 @@ export default {
             var dateCreated = Date.parse(_thedate);
             var shDateCreated = dateCreated.getMonthName('short') + ' ' + dateCreated.getDate() + ', ' + dateCreated.getFullYear();
             this._shDateCreated = shDateCreated;
+        },
+        fbShareFunc: function(){
+            let url = this.shareLink;
+            console.log(url);
+            FB.ui({
+                method: 'share',
+                display: 'popup',
+                href: this.shareLink,
+            }, function(response){});
         }
     }
 }
+
+
 
 
 </script>
