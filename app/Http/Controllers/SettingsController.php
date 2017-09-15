@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Hash;
-use JD\Cloudder\Facades\Cloudder;
 
 class SettingsController extends Controller
 {
@@ -132,7 +131,7 @@ class SettingsController extends Controller
         try {
 
 
-            Cloudder::upload($request->file('new_avatar'), 'swuser_' . Auth::id() . 'jlj143', array(
+            \Cloudder::upload($request->file('new_avatar'), 'swuser_' . Auth::id() . 'jlj143', array(
                 'width' => '290',
                 'height' => '290',
                 'crop' => 'fill',
@@ -141,7 +140,7 @@ class SettingsController extends Controller
                 'invalidate' => true
             ));
 
-            $url = Cloudder::getResult();
+            $url = \Cloudder::getResult();
 
             $avatarUrl = $url['url'];
 
