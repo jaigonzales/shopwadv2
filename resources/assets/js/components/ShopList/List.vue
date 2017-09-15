@@ -33,7 +33,7 @@
                     </li>
                     <li class="dropdown-header">Share it</li>
                     <li>
-                        <a href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs" @click.prevent=""><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a>
+                        <a :href="this.fbShare" @click.prevent=""><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a>
                     </li>
                     <li>
                         <a :href="shareLink"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
@@ -108,7 +108,8 @@ export default {
             editDesc: this.li.desc,
             editPrivacy: this.li.privacy,
             _shDateCreated: '',
-            shareLink: host + '/p_shoplist?pid=' + this.userid + '&swid=' + this.li.id
+            shareLink: encodeURI(host + '/p_shoplist?pid=' + this.userid + '&swid=' + this.li.id),
+            fbShare: "https://www.facebook.com/dialog/share?app_id=229606804216824&display=popup&href=" + shareLink
         }
     },
     mounted: function(){
