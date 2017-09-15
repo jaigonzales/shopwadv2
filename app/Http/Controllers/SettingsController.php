@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Hash;
+use JD\Cloudder\Facades\Cloudder;
 
 class SettingsController extends Controller
 {
@@ -126,7 +127,7 @@ class SettingsController extends Controller
         return view('profile/avatar');
     }
 
-    public function updateAvatar(Request $request  ){
+    public function updateAvatar( Request $request  ){
 
         try {
 
