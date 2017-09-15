@@ -53,7 +53,7 @@ class oAuthFacebookController extends Controller
             'email' => $facebookUser->email,
             'avatar' => $facebookUser->avatar_original,
             'gender' => $facebookUser->user['gender'],
-            'verified' => 1,
+            'verified' => '1',
             'verification_token' => NULL,
             'provider_user_id' => $facebookUser->id,
             'provider' => 'facebook'
