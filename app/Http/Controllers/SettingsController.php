@@ -123,14 +123,12 @@ class SettingsController extends Controller
     }
 
     public function avatar(){
-        return view('profile/avatar');
+        return view('profile.avatar');
     }
 
     public function updateAvatar( Request $request  ){
 
         try {
-
-
             \Cloudder::upload($request->file('new_avatar'), 'swuser_' . Auth::id() . 'jlj143', array(
                 'width' => '290',
                 'height' => '290',
@@ -140,6 +138,7 @@ class SettingsController extends Controller
                 'invalidate' => true
             ));
 
+//            $avatarUrl = 'http://res.cloudinary.com/' . env('CLOUDINARY_CLOUD_NAME') . '/image/upload/' . 'swuser_' . Auth::id() . 'jlj143.jpg';
             $url = \Cloudder::getResult();
 
             $avatarUrl = $url['url'];
@@ -152,6 +151,7 @@ class SettingsController extends Controller
         }catch(\Exception $e){
             $e->getMessage();
         }
+
         return redirect('/avatar');
     }
 

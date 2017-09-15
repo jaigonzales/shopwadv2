@@ -14,7 +14,7 @@
                         @endif
                     </div>
                     <div class="text-center">
-                        <form method="post" action="/avatar" enctype="multipart/form-data" role="form">
+                        <form method="post" action="/update-avatar" enctype="multipart/form-data" role="form">
                             {{ csrf_field() }}
                             <label id="upload-img-area">
                                 <input type="file" id="new_avatar" name="new_avatar" accept="image/*" style="display: none;"/>
