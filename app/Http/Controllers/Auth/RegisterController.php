@@ -111,8 +111,8 @@ class RegisterController extends Controller
         UserVerification::generate($user);
         UserVerification::send($user, 'Shop Wad - Verify your email');
 
-        return back()->withAlert('Register successfully, please verify your email.');
-//        return $this->registered($request, $user)
-//            ?: redirect($this->redirectPath());
+//        return back()->withAlert('Register successfully, please verify your email.');
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 }
