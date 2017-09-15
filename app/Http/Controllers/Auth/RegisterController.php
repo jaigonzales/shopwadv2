@@ -109,7 +109,7 @@ class RegisterController extends Controller
         $this->guard()->login($user);
 
         UserVerification::generate($user);
-        UserVerification::send($user, 'My Custom E-mail Subject');
+        UserVerification::send($user, 'Shop Wad - Verify your email');
 
         return back()->withAlert('Register successfully, please verify your email.');
 //        return $this->registered($request, $user)

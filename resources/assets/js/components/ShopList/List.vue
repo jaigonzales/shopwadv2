@@ -2,7 +2,8 @@
 <li class="list-group-item shoplist-item">
     <div class="list">
         <div class="list-content">
-            <div class="user-list-title"><a :href="shoplistUrl(li.id)">{{ li.title }}</a></div>
+            <div class="user-list-title">
+                <a :href="shoplistUrl(li.id)">{{ li.title }}</a></div>
             <div class="publish-details">
                 {{ this.formatDate(li.created_at) }}{{this._shDateCreated}}
                 <span> &#8901; </span>
@@ -15,8 +16,8 @@
             <div class="user-list-desc" v-if="li.desc">{{ li.desc }}</div>
             <div class="user-list-desc" style="color: #d8d8d8" v-else><em>No description</em></div>
             <div class="btn-group pull-right tiny-opt-link">
-                <button type="button" class="btn-no-border btn-norm btn-gray dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                <button type="button" class="btn-no-border btn-norm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="vdots"></span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a href="#" @click.prevent="onEdit()" data-toggle="modal" data-target="#edit-list-form"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></li>
@@ -102,9 +103,7 @@ export default {
                         this.count = response.data.count;
                     }
                 ).catch(
-                    (error) => {
-                        console.log('error occured getting the product counts');
-                    }
+                    (error) => { }
                 )
         },
         onUpdate: function() {
@@ -121,7 +120,7 @@ export default {
                         this.li.privacy = this.editPrivacy;
                         $('#edit-list-form').modal('toggle');
                         $('#edit-list-form').on('hidden.bs.modal', function (e) {
-                            vm.editing = false;
+                            this.editing = false;
                             toastr.success('Shoplist successfully updated!', 'Shoplist Update', {
                                 timeOut: 5000
                             });
@@ -141,13 +140,13 @@ export default {
         onClose: function() {
             let root = this;
             $('#edit-list-form').on('hidden.bs.modal', function (e) {
-                root.editing = false;
+                this.editing = false;
             });
         },
 
         onDelete: function(id) {
 
-            let emits = this;
+            let vm = this;
 
             swal({
                 title: 'Are you sure?',
@@ -158,14 +157,15 @@ export default {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
             }).then(function() {
-                emits.$emit('listDeleted', id);
+
                 axios.delete('/api/v1/shoplist/' + id)
                     .then(
                         swal(
                             'Deleted!',
                             'Your shoplist has been deleted.',
                             'success'
-                        )
+                        ),
+                        vm.$emit('listDeleted', id)
                     )
                     .catch(
                         (error) => {
@@ -183,7 +183,7 @@ export default {
         },
 
         shoplistUrl: function(id) {
-            return 'shoplist/' + id;
+            return 'u_shoplist?swid=' + id;
         },
 
         formatDate: function(_thedate){

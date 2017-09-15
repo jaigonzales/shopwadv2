@@ -16,13 +16,18 @@
             </table>
         </div>
         <ul class="shoplists-list list-group">
-            <user-list v-for="list in lists" v-bind:key="list" :userid="userid" :li="list" @listDeleted="onListDeleted($event)">
+            <user-list v-for="list in lists"
+                       v-bind:key="list.id"
+                       :userid="userid"
+                       :li="list"
+                       @listDeleted="onListDeleted($event)">
             </user-list>
         </ul>
-    </div>
+        <v-paginator :resource_url="resource_url" ref="vpaginator" @update="updateResource"></v-paginator>
+</div>
     <!-- Create form -->
     <div id="create-list" class="modal fade" role="dialog">
-        <form method="POST" enctype="multipart/form-data" v-on:submit.prevent="onSubmitted" class="form-horizontal" role="form">
+        <form method="POST" enctype="multipart/form-data" @submit.prevent="onSubmitted" class="form-horizontal" role="form">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -58,7 +63,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Create Shopist</button>
+                    <button type="submit" class="btn btn-primary">Create Shoplist</button>
                 </div>
 
             </div>
@@ -72,17 +77,20 @@
 <script>
 
 import VueResource from 'vue-resource';
+import VuePaginator from 'vuejs-paginator';
 import List from './List.vue';
 import axios from 'axios';
 
 export default {
     props: ['userid'],
     components: {
-        'user-list': List
+        'user-list': List,
+        VPaginator: VuePaginator,
     },
     data() {
         return {
             lists: [],
+            resource_url: '/api/v1/' + this.userid + '/shoplists',
             shoplistId: '',
             shoplistTitle: '',
             shoplistDesc: '',
@@ -91,11 +99,12 @@ export default {
         }
     },
     mounted: function() {
-        this.getUserLists();
+//        this.getUserLists();
     },
     methods: {
 
         onSubmitted: function() {
+            let vm = this;
             axios.post( 'api/v1/shoplist', {
                     userid: this.userid,
                     title: this.shoplistTitle,
@@ -106,13 +115,15 @@ export default {
                     (response) => {
 
                         $('#create-list').modal('hide');
-                        toastr.success('Shoplist Created Successfully.', 'Success Alert', {
-                            timeOut: 5000
-                        });
-                        this.getUserLists();
+//                        this.getUserLists();
                         this.shoplistTitle = null;
                         this.shoplistDesc = null;
                         this.shoplistPrivacy = 0;
+                        toastr.success('Shoplist Created Successfully.', 'Success Alert', {
+                            timeOut: 1000
+                        });
+                        vm.$refs.vpaginator.fetchData(vm.resource_url);
+
                     },
                     // on success
 
@@ -121,38 +132,27 @@ export default {
                     (error) => {
                         $('#create-list').modal('hide');
                         toastr.error('Failed to create list.', 'Error 500', {
-                            timeOut: 5000
+                            timeOut: 1000
                         });
                     }
                 )
         },
-        getUserLists: function() {
-
-            axios.get( '/api/v1/' + this.userid + '/shoplists')
-                .then(
-                    response => {
-                        this.lists = response.data.shoplists;
-                    }
-                )
-                .catch(
-                    (error) => console.log(error)
-                );
-        },
-        countUserProducts: function(){
-            axios.get( '/api/v1/' + this.userid + '/products/count')
-                .then(
-                    (response) => {
-                        this.totalProducts = response.data.totalProducts;
-                    }
-                )
-        },
         onListDeleted: function(id) {
-            const position = this.lists.findIndex((element) => {
-                return element.id == id;
+            this.$nextTick(function(){
+                this.$refs.vpaginator.fetchData(this.resource_url);
             });
-            this.lists.splice(position, 1);
-            
-        }
-    },
+
+            this.$forceUpdate();
+
+//            const position = this.lists.findIndex((element) => {
+//                return element.id == id;
+//            });
+//            this.lists.splice(position, 1);
+
+        },
+        updateResource: function(data) {
+            this.lists = data;
+        },
+    }
 }
 </script>

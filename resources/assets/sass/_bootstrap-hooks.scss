@@ -1,5 +1,13 @@
 /*Bootstrap button outline override*/
 
+
+.list-group-item{
+
+    a{
+        color: #000
+    }
+
+}
 .btn-outline {
     background-color: transparent;
     color: inherit;
@@ -119,9 +127,7 @@
     color: #fff;
 }
 
-.navbar-form{
-    margin-top:13px;
-}
+
 
 .badge-danger{
     background-color: red;
@@ -138,7 +144,10 @@
     @include border-radius(50px);
 }
 
-
+.navbar-form{
+    margin-left: 0;
+    margin-right: 0;
+}
 @media (min-width: 768px) {
     .navbar-nav > li > a {
         padding-top: 20px;
@@ -159,7 +168,9 @@
 
     /* Small Devices, Tablets */
     @media only screen and (min-width : 768px) {
-
+        .navbar-form{
+            padding-top: 6px;
+        }
     }
 
     /* Medium Devices, Desktops */

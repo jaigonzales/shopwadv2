@@ -1,0 +1,1 @@
+<friend-settings :recipientid="{{ $_GET['pid'] }}"></friend-settings>

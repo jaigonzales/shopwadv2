@@ -20,7 +20,10 @@
         color: $link-color-hover;
     }
 }
-
+h1.profile-name{
+  font-size: 2em;
+  font-weight: bold;
+}
 .form-headers{
     font-size: 24px;
     font-weight: 200;
@@ -29,9 +32,8 @@
 
 .widget-title {
     font-family: Arial, sans-serif;
-    text-transform: uppercase;
-    font-size: 11px;
     color: #7d7d7d;
+    font-size: 12px;
 }
 .cust-label {
     padding-left: 4px;
@@ -91,4 +93,28 @@
 .msg-error{
     color: #ff6666;
     font-size: 12px;
+}
+
+.sub-labels{
+    color: #90949c;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    &.sx{
+        font-size: 11px;
+    }
+}
+h1.page-title{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 0;
+}
+.hi-text{
+    font-size: 2em;
+    font-weight: bold;
+}
+h1.profile-name{
+  font-size: 1.6em;
+  font-weight: normal;
+  margin: 0;
+  padding-top: 22px;
+  padding-bottom: 11px;
 }

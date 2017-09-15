@@ -3,9 +3,14 @@
 .btn-no-border{
     border: none;
     background-color: transparent;
-    margin: 4px;
-    padding: 0;
-    @include border-radius(5px);
+    margin: 0 !important;
+    padding: 0 !important;
+    @include border-radius(0 !important);
+    box-shadow: none !important;
+    color: #8da7b0;
+    &:hover{
+        color: #000;
+    }
 }
 .btn-fat{
     padding: 8px 12px;
@@ -35,4 +40,30 @@
         background-color: $tomato;
         color: #fff;
     }
+}
+
+.menu-stripe {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background: rgb(0,77,141);
+}
+
+.menu-stripe:before, .menu-stripe:after {
+    background: white;
+    content: "";
+    position: absolute;
+    height: 3px;
+    top: 12px;
+    box-shadow: 0 10px white, 0 20px white;
+}
+
+.menu-stripe:before {
+    width: 3px;
+    left: 12px;
+}
+
+.menu-stripe:after {
+    width: 18px;
+    left: 18px;
 }

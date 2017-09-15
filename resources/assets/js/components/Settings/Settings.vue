@@ -5,7 +5,7 @@
     <div class="settings_item">
         <span class="s_label">First name</span>
         <span v-if="!isEditingFname">
-            <strong>{{ userInfo['first_name'] }}</strong>
+            <strong>{{ userInfo['firstname'] }}</strong>
                 <button id="editFirstName" class="plainButton pull-right" @click.prevent="onEditFirstname">
                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
                 </button>
@@ -18,7 +18,7 @@
                        name="fname"
                        class="form-control"
                        v-model="user_fname"
-                       data-vv-as="firstname"
+                       data-vv-as="first name"
                        v-validate="'required|alpha_spaces'"
                        :class="{'input': true, 'has-error': errors.has('fname') }"
                 />
@@ -36,7 +36,7 @@
     <div class="settings_item">
         <span class="s_label">Last name</span>
         <span v-if="!isEditingLname">
-            <strong>{{ userInfo['last_name'] }}</strong>
+            <strong>{{ userInfo['lastname'] }}</strong>
             <button id="editLastName"  class="plainButton pull-right" @click.prevent="onEditLastname">
                 <i class="fa fa-pencil" aria-hidden="true"></i> Edit
             </button>
@@ -46,7 +46,7 @@
                 <div class="form-group">
                 <input type="text"
                        name="lname"
-                       data-vv-as="lastname"
+                       data-vv-as="last name"
                        v-model="user_lname"
                        class="form-control"
                        v-validate="'required|alpha_spaces'"
@@ -336,7 +336,7 @@
             </span>
     </div>
     <!-- delete -->
-    <div class="settings_item">
+    <!--<div class="settings_item">
         <span class="s_label">Permanently delete account</span>
         <button class="btn btn-xs btn-danger pull-right" @click.prevent="onAttemptDelete">Delete Account</button>
         <span v-if="attemptDelete">
@@ -361,7 +361,7 @@
                 </form>
             </div>
         </span>
-    </div>
+    </div>-->
 </div>
 </template>
 <script>
@@ -446,11 +446,11 @@ export default {
         },
         onEditFirstname: function() {
             this.isEditingFname = true;
-            this.user_fname = this.userInfo['first_name'];
+            this.user_fname = this.userInfo['firstname'];
         },
         onEditLastname: function() {
             this.isEditingLname = true;
-            this.user_lname = this.userInfo['last_name'];
+            this.user_lname = this.userInfo['lastname'];
         },
         onEditBday: function() {
             this.isEditingBday = true;

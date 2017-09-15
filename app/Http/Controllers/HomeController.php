@@ -24,10 +24,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( )
     {
         $user = User::find(Auth::id());
-        $user->getFriends();
-        return view('home');
+        $friends = $user->getFriends();
+        return view('profile.home')->with('friends', $friends);
     }
 }

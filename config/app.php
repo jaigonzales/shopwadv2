@@ -192,6 +192,15 @@ return [
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        /*
+         * CORS Service Provider
+         */
+        Barryvdh\Cors\ServiceProvider::class,
+
+        /*
+         * Cloudder / Cloudinary Service Provider
+         */
+        JD\Cloudder\CloudderServiceProvider::class,
     ],
 
     /*
@@ -242,6 +251,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
     ],
 
 ];

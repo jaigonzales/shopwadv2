@@ -11,9 +11,6 @@ class StaticPagesController extends Controller
      * Welcome Page route
      */
     public function welcome(){
-        if(Auth::check()) {
-            return redirect('/home');
-        }
         return view('welcome');
     }
     /*

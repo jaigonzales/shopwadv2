@@ -8,7 +8,7 @@
         <ul class="products list-group" >
             <shoplist-product
                 v-for="product in products"
-                v-bind:key="product"
+                v-bind:key="product.id"
                 :li="product"
                 @productDeleted="onProductDeleted($event)"
                 :user_id="userid"
@@ -123,9 +123,6 @@ export default {
             }
         }
     },
-    watch: {
-
-    },
     methods: {
 
         onAddProduct: function() {
@@ -161,7 +158,7 @@ export default {
                     (response) => {
                         $('#add-product').modal('hide');
                         this.resetForm();
-                        this.$validator.clean();
+                        this.$validator.reset();
                         toastr.success('Product added!', 'Success', {
                             timeOut: 5000
                         });
@@ -171,8 +168,8 @@ export default {
                 )
                 .catch(
                     (error) => {
-                        console.log(error);
                         $('#add-product').modal('hide');
+                        this.$validator.reset();
                         toastr.error('Failed to add product.', 'Error', {
                             timeOut: 5000
                         });

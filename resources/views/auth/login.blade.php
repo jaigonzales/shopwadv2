@@ -1,11 +1,10 @@
 @extends('layouts.app')
-
+@section('pageTitle', 'Log in')
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-md-4 col-md-offset-4">
             <div class="auth-form">
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-4">
                         <div class="m-b-md">
                             <h3 class="form-headers">Log in</h3>
                         </div>
@@ -90,7 +89,6 @@
                                 No account yet? <a href="{{ route('register') }}">Register</a>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

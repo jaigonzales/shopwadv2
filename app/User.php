@@ -6,6 +6,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Hootlex\Friendships\Traits\Friendable;
 
+use App\Shoplist;
+use App\Product;
+
 class User extends Authenticatable
 {
     use Notifiable;

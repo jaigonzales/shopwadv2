@@ -22,11 +22,14 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->nullable();
             $table->string('gender');
             $table->string('avatar')->default('/images/default-picture.jpg');
+            $table->string('shoutout')->nullable();
             $table->string('provider_user_id')->nullable();
             $table->string('provider')->default('email');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::update("ALTER TABLE users AUTO_INCREMENT = 1000000001;");
     }
 
     /**
