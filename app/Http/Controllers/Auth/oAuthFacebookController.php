@@ -32,8 +32,7 @@ class oAuthFacebookController extends Controller
         }
 
         $authUser = $this->createOrGetUser($user);
-        UserVerification::generate($user);
-        UserVerification::send($user, 'Shop Wad - Verify your email');
+
         Auth::login($authUser, true);
 
         return redirect($this->redirectTo);
@@ -48,14 +47,18 @@ class oAuthFacebookController extends Controller
             return $authUser;
         }
 
-        return User::create([
+        $createUser = User::create([
             'firstname' => $facebookUser->user['first_name'],
             'lastname' => $facebookUser->user['last_name'],
             'email' => $facebookUser->email,
             'avatar' => $facebookUser->avatar_original,
             'gender' => $facebookUser->user['gender'],
             'provider_user_id' => $facebookUser->id,
-            'provider' => 'facebook'
+            'provider' => 'facebook',
+            'verified' => 1,
+            'verification_token' => NULL,
         ]);
+
+        return $createUser;
     }
 }

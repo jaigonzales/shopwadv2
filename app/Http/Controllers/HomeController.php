@@ -27,6 +27,12 @@ class HomeController extends Controller
     public function index( )
     {
         $user = User::find(Auth::id());
+
+        User::where('id', Auth::id())
+            ->where('provider', 'facebook')
+            ->where('verified', 0)
+            ->update(['verified' => 1]);
+
         $friends = $user->getFriends();
         return view('profile.home')->with('friends', $friends);
     }
