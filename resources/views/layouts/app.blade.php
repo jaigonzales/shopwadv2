@@ -34,7 +34,6 @@
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Load Facebook SDK for JavaScript -->
 
-
     <script>
         window.ShopWad = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -42,6 +41,26 @@
     </script>
 </head>
 <body>
+<!-- Load Facebook SDK for JavaScript -->
+<script>
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '229606804216824',
+            xfbml      : true,
+            version    : 'v2.9'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
 <div id="app">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
