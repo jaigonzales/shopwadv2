@@ -67,3 +67,44 @@
   top: 12px;
   right: 12px;
 }
+
+.btn-danger{
+  background: #b72025;
+  &:hover{
+    background: #eb1d25;
+    border-color: #b72025;
+  }
+}
+.btn-black-outline{
+  background: #bbcdcf;
+  border: 2px solid #bbcdcf;
+  color: #000;
+  -webkit-transition: background-color, color 0.3s ease-in-out;
+  -moz-transition: background-color, color 0.3s ease-in-out;
+  -ms-transition: background-color, color 0.3s ease-in-out;
+  -o-transition: background-color, color 0.3s ease-in-out;
+  transition: background-color, color 0.3s ease-in-out;
+  font-weight: 700;
+  &:hover{
+    background: #000;
+    color: #fff;
+    border-color: #000;
+  }
+}
+
+.btn-red-outline{
+  background: #b72025;
+  border: 2px solid #b72025;
+  color: #fff;
+  -webkit-transition: background-color, color 0.3s ease-in-out;
+  -moz-transition: background-color, color 0.3s ease-in-out;
+  -ms-transition: background-color, color 0.3s ease-in-out;
+  -o-transition: background-color, color 0.3s ease-in-out;
+  transition: background-color, color 0.3s ease-in-out;
+  font-weight: 700;
+  &:hover{
+    background: #8ecc1f;
+    color: #fff;
+    border-color: #8ecc1f;
+  }
+}

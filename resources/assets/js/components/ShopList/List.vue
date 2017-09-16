@@ -36,7 +36,7 @@
                         <a href="#" @click.prevent="fbShareFunc"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a>
                     </li>
                     <li>
-                        <a :href="shareLink"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
+                        <a :href="twitterShare"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
                     </li>
                 </ul>
             </div>
@@ -108,7 +108,8 @@ export default {
             editDesc: this.li.desc,
             editPrivacy: this.li.privacy,
             _shDateCreated: '',
-            shareLink: host + '/p_shoplist?pid=' + this.userid + '&swid=' + this.li.id
+            shareLink: host + '/p_shoplist?pid=' + this.userid + '&swid=' + this.li.id,
+            twitterShare: 'https://twitter.com/intent/tweet?text=I%20created%20a%20shoplist!%20Check%20it%20out!%20http%3A//www.shopwad.com/p_shoplist?pid=' + this.userid + '%26swid=' + this.li.id
         }
     },
     mounted: function(){

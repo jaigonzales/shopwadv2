@@ -36,10 +36,119 @@
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <style type="text/css">
-        body{
+        html, body{
+            height: 100%;
+        }
+        .tag-line{
+            font-weight: 700;
+            color: #000;
+            font-size: 4em;
+        }
+        .home-wd-title{
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        #welcomebg{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+        }
+        #welcomebg img{
+            width: 100%;
+            height: auto;
+        }
+        #homepage-slide{
+            margin-top: 40px;
+            position: relative;
+            height: 100%;
+            height: 100vh;
+        }
+        #homepage-slide .content{
+            height: inherit;
+        }
+        #homepage-dedatils{
+            background: #fff;
+            position: relative;
+            z-index: 999;
+            padding-top: 80px;
+        }
+        #homepage-details img{
+            max-width: 500px;
 
         }
-        .content{  }
+        .home-wid{
+            float: left;
+            margin: 12px;
+            box-sizing: border-box;
+            min-height: 400px;
+
+            padding: 24px;
+            text-align: center;
+            background: #f3f3f3;
+        }
+        @media only screen and (min-width : 320px) {
+            .tag-line{
+                font-size: 2em;
+            }
+            #welcomebg{
+                top: 200px;
+                left: 0;
+            }
+        }
+
+        /* Extra Small Devices, Phones */
+        @media only screen and (min-width : 480px) {
+            .tag-line{
+                font-size: 3em;
+            }
+            #welcomebg{
+                top: 180px;
+                left: 0;
+            }
+        }
+
+        /* Small Devices, Tablets */
+        @media only screen and (min-width : 768px) {
+            .home-wid{
+                width: calc(50% - 72px);
+            }
+            .tag-line{
+                font-size: 3.4em;
+            }
+            #welcomebg{
+                top: 140px;
+                left: 0;
+            }
+        }
+
+        @media only screen and ( min-width: 992px){
+            .tag-line{
+                font-size: 3.7em;
+            }
+            #welcomebg{
+                top: 90px;
+                left: 0;
+            }
+        }
+        @media only screen and ( min-width: 1024px ){
+            #welcomebg{
+                top: 80px;
+                left: 0;
+            }
+        }
+        @media only screen and ( min-width: 1200px){
+            #welcomebg{
+                top: 0;
+                left: 0;
+            }
+        }
+        @media only screen and ( min-width: 1440px){
+            #welcomebg{
+                top: 0;
+                left: 0;
+            }
+        }
+
     </style>
 
         <script>

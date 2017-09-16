@@ -19,3 +19,14 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function inviteFriendsOnFacebook() {
+    document.getElementById("facebookInvite").addEventListener("click", function(event){
+        event.preventDefault();
+    });
+    FB.ui({
+        method: 'share',
+        display: 'popup',
+        href: 'http://www.shopwad.com',
+    }, function(response){});
+}
