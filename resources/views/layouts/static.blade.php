@@ -171,5 +171,24 @@
 <script src="{{ asset('js/app.js') }}"></script>
 
 <script src="{{ asset('js/site.js') }}"></script>
+<script type="text/javascript">
+    $('a.fbShareUrlBtn').click(function(event){
+        event.preventDefault();
+
+        var protocol = location.protocol;
+        var slashes = protocol.concat("//");
+        var host = slashes.concat(window.location.hostname);
+        var fbUrl = encodeURIComponent($(this).data('fblink'));
+        var fullFbLink = host + "/" + fbUrl;
+        FB.ui({
+            method: 'feed',
+            link: fullFbLink,
+            caption: 'An example caption',
+        }, function(response){});
+    });
+    $('a.twShareUrlBtn').click(function(event){
+       event.preventDefault();
+    });
+</script>
 </body>
 </html>

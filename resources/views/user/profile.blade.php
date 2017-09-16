@@ -36,6 +36,24 @@
                                     @else
                                     <div class="user-list-desc"><em>No description</em></div>
                                     @endif
+                                    <div class="btn-group pull-right tiny-opt-link">
+                                        <button type="button" class="btn-no-border btn-norm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="vdots"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-header">Share it</li>
+                                            <li>
+                                                <a href="#" class="fbShareUrlBtn" data-fblink="p_shoplist?pid={{ $_GET['pid'] }}&swid={{ $shoplist->id }}">
+                                                    <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://twitter.com/intent/tweet?text=I%20created%20a%20shoplist!%20Check%20it%20out!%20http%3A//www.shopwad.com/p_shoplist?pid={{ $_GET['pid'] }}%26swid={{ $shoplist->id }}" class="twShareUrlBtn">
+                                                    <i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </li>

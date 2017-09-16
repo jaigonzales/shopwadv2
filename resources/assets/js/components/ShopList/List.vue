@@ -216,12 +216,11 @@ export default {
             this._shDateCreated = shDateCreated;
         },
         fbShareFunc: function(){
-            let url = this.shareLink;
-            console.log(url);
+
             FB.ui({
-                method: 'share',
-                display: 'popup',
-                href: this.shareLink,
+                method: 'feed',
+                link: this.shareLink,
+                caption: 'An example caption'
             }, function(response){});
         }
     }
