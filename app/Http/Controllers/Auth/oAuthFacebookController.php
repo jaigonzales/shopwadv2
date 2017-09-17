@@ -12,7 +12,7 @@ use App\User;
 
 class oAuthFacebookController extends Controller
 {
-    protected $redirectTo = 'home';
+    protected $redirectTo = '/home';
 
     public function redirect()
     {
