@@ -25,10 +25,10 @@ class oAuthFacebookController extends Controller
         try {
             $user = Socialite::driver('facebook')->fields([
                 'first_name', 'last_name', 'email', 'picture{url}', 'gender'
-            ])->user();
+            ])->stateless()->user();
 
         } catch (Exception $e) {
-            return redirect('auth/facebook');
+            return redirect('/auth/facebook');
         }
 
         $authUser = $this->createOrGetUser($user);
