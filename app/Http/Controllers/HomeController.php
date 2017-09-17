@@ -16,11 +16,14 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware(['auth', 'isVerified']);
+
         User::where('id', Auth::id())
             ->where('provider', 'facebook')
             ->where('verified', 0)
-            ->update(['verified' => 1]);
-//        $this->middleware('auth');
+            ->update([
+                'verified' => 1,
+                'verification_token' => null
+            ]);
     }
 
     /**
@@ -31,8 +34,6 @@ class HomeController extends Controller
     public function index( )
     {
         $user = User::find(Auth::id());
-
-
 
         $friends = $user->getFriends();
         return view('profile.home')->with('friends', $friends);

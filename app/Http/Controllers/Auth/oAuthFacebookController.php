@@ -47,18 +47,14 @@ class oAuthFacebookController extends Controller
             return $authUser;
         }
 
-        $createUser = User::create([
+        return User::create([
             'firstname' => $facebookUser->user['first_name'],
             'lastname' => $facebookUser->user['last_name'],
             'email' => $facebookUser->email,
             'avatar' => $facebookUser->avatar_original,
             'gender' => $facebookUser->user['gender'],
             'provider_user_id' => $facebookUser->id,
-            'provider' => 'facebook',
-            'verified' => 1,
-            'verification_token' => NULL,
+            'provider' => 'facebook'
         ]);
-
-        return $createUser;
     }
 }

@@ -69,5 +69,5 @@ Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerif
  * Laravel Socialite OAuth Redirect/Callbacks
  */
 // social redirect and callback routes
-Route::get('auth/facebook', 'Auth\oAuthFacebookController@redirect');
-Route::get('auth/facebook/callback', 'Auth\oAuthFacebookController@callback');
+Route::get('/auth/facebook', 'Auth\oAuthFacebookController@redirect');
+Route::get('/auth/facebook/callback', 'Auth\oAuthFacebookController@callback');
