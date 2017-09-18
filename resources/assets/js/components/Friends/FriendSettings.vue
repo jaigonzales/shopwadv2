@@ -5,7 +5,7 @@
         </div>
         <div v-else>
         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
-            <i class="fa fa-angle-down" aria-hidden="true"></i>
+            <i class="fa fa-cog" aria-hidden="true"></i>
         </a>
         <ul class="dropdown-menu pull-right">
             <li v-if="this.friendshipStatus === 3"><a href="#" @click.prevent="unfriend" id="unfriend">Unfriend</a></li>
