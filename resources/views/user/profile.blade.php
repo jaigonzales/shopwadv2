@@ -56,6 +56,7 @@
                                     </div>
                                 </div>
                             </div>
+                        <span class="bagIcon"><img src="{{ asset('/images/bagIcon.png') }}"></span>
                         </li>
                         @endforeach
                     </ul>

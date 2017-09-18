@@ -86,6 +86,7 @@
     </form>
     </div>
     <div v-else></div>
+    <span class="bagIcon"><img src="/images/bagIcon.png"></span>
 </li>
 </template>
 
