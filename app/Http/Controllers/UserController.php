@@ -96,12 +96,11 @@ class UserController extends Controller
         try {
             $user = User::find($request->input('pid'));
 
-            $shoplists = Shoplist::where('id', $request->input('swid'))
-                ->where('user_id', $request->input('pid'));
+            $shoplists = Shoplist::where('user_id', $request->input('pid'));
 
             $shoplistTotal = $shoplists->count();
 
-            $shoplist = $shoplists->first();
+            $shoplist = $shoplists->where('id', $request->input('swid'))->first();
 
             $product = Product::where('user_id', $request->input('pid'))
                 ->where('shoplist_id', $request->input('swid'));
