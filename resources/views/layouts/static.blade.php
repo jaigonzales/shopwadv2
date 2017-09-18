@@ -178,7 +178,7 @@
         var protocol = location.protocol;
         var slashes = protocol.concat("//");
         var host = slashes.concat(window.location.hostname);
-        var fbUrl = encodeURIComponent($(this).data('fblink'));
+        var fbUrl = $(this).data('fblink');
         var fullFbLink = host + "/" + fbUrl;
         FB.ui({
             method: 'feed',
