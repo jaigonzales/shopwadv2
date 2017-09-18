@@ -38,7 +38,7 @@
                                     @endif
                                     <div class="btn-group pull-right tiny-opt-link">
                                         <button type="button" class="btn-no-border btn-norm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="vdots"></span>
+                                            <i class="fa fa-cogs" aria-hidden="true"></i>
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-header">Share it</li>
