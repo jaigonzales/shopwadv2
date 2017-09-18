@@ -177,7 +177,6 @@ export default {
             let vm = this;
             swal({
                 title: 'Are you sure?',
-                text: "The item will be deleted permanently!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -189,7 +188,7 @@ export default {
                     .then(
                         swal(
                             'Deleted!',
-                            'Your item has been deleted.',
+                            'Your item has been deleted!',
                             'success'
                         ),
                         vm.$emit('productDeleted', id)

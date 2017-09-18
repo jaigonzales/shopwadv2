@@ -27,7 +27,7 @@
                     @endforeach
                 </ul>
                 @else
-                    <p class="text-center">You don't have pending friend requests to approve yet.</p>
+                    <p class="text-center">No pending requests.</p>
                 @endif
             </div>
         </div>

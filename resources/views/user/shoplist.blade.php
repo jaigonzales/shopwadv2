@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="product-contents col-sm-10">
                                     <h4 class="product-title">
-                                        <a href="#" target="_blank" rel="nofollow" class="product-title">{{ $product->product_name }}</a>
+                                        <a href="{{ $product->product_url }}" target="_blank" rel="nofollow" class="product-title">{{ $product->product_name }}</a>
                                     </h4>
                                     <ul class="product-details">
                                         <li class="product-detail prod-size">

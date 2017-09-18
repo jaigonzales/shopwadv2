@@ -79,12 +79,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" @click="onClose()">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary" id="submitEdit">Save Changes</button>
                 </div>
             </div>
         </div>
     </form>
     </div>
+    <div v-else></div>
 </li>
 </template>
 
@@ -114,10 +115,12 @@ export default {
     },
     mounted: function(){
         this.countProducts();
+
     },
     methods: {
 
         onEdit: function() {
+
             this.editing = true;
         },
         countProducts: function() {
@@ -162,9 +165,11 @@ export default {
         },
 
         onClose: function() {
+            this.editing = false;
+
             let root = this;
-            $('#edit-list-form').on('hidden.bs.modal', function (e) {
-                this.editing = false;
+            $('#edit-product-form').on('hidden.bs.modal', function (e) {
+                root.editing = false;
             });
         },
 
@@ -225,6 +230,26 @@ export default {
         }
     }
 }
+
+// jQuery plugin to prevent double submission of forms
+
+
+jQuery.fn.preventDoubleSubmission = function() {
+    $(this).on('submit',function(e){
+        var $form = $(this);
+
+        if ($form.data('submitted') === true) {
+            // Previously submitted - don't submit again
+            e.preventDefault();
+        } else {
+            // Mark it so that the next submit can be ignored
+            $form.data('submitted', true);
+        }
+    });
+
+    // Keep chainability
+    return this;
+};
 
 
 

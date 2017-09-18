@@ -24,8 +24,16 @@
         </div>
         <div class="user-counts">
             <ul>
-                <li><strong>{{ $p_shoplistTotal }}</strong> shoplists</li>
-                <li><strong>{{ $p_productTotal }}</strong> products</li>
+                <li>
+                    @if ( \Request::route()->getName() == 'p_shoplist')
+                    <strong>{{ $p_shoplistTotal - 1 }}</strong> shoplists
+                    @else
+                        <strong>{{ $p_shoplistTotal }}</strong> shoplists
+                    @endif
+                </li>
+                <li><strong>
+                        {{ $p_productTotal }}</strong> products
+                </li>
             </ul>
         </div>
         @if ( !Auth::guest() )

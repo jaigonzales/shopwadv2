@@ -19,8 +19,8 @@ class CreateProducts extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('shoplist_id')->unsigned();
             $table->foreign('shoplist_id')->references('id')->on('shoplists')->onDelete('cascade');
-            $table->string('product_name');
-            $table->string('product_url');
+            $table->text('product_name');
+            $table->text('product_url');
             $table->char('size', 5);
             $table->string('color');
             $table->smallInteger('quantity');
