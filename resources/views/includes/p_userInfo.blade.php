@@ -25,7 +25,7 @@
         <div class="user-counts">
             <ul>
                 <li><strong>{{ $p_shoplistTotal }}</strong> shoplists</li>
-                <li><strong></strong> products</li>
+                <li><strong>{{ $p_productTotal }}</strong> products</li>
             </ul>
         </div>
         @if ( !Auth::guest() )

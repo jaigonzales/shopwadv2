@@ -103,10 +103,11 @@ class UserController extends Controller
 
             $shoplist = $shoplists->where('id', $request->input('swid'))->first();
 
-            $product = Product::where('user_id', $request->input('pid'))
-                ->where('shoplist_id', $request->input('swid'));
+            $products = Product::where('user_id', $request->input('pid'));
 
-            $productTotal = $product->count();
+            $product = $products->where('shoplist_id', $request->input('swid'));
+
+            $productTotal = $products->count();
 
             $products = $product->paginate(5);
 
