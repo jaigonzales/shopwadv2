@@ -23,6 +23,7 @@ class UserController extends Controller
         $shoplists = null;
         $shoplistTotal = null;
         $productTotal = null;
+        $shoplistTotalProduct = null;
 
         if ( !$pid ){
             return view('404');

@@ -29,7 +29,7 @@
                                                 <i class="fa fa-lock" aria-hidden="true"></i>
                                             @endif
                                         <span> &#8901; </span>
-                                        <span> items</span>
+                                        <span>{{  App\Product::where('user_id', $_GET['pid'])->where('shoplist_id', $shoplist->id)->count() }} items</span>
                                     </div>
                                     @if ( !empty($shoplist->desc) )
                                     <div class="user-list-desc">{{ $shoplist->desc }}</div>
