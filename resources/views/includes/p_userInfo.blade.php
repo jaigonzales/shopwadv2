@@ -12,7 +12,7 @@
                 @if ( $user->birthday )
                     <?php
                     $bday = new DateTime($user->birthday);
-                    echo date_format($bday, 'jS F Y');
+                    echo date_format($bday, 'jS F');
                     ?>
                 @else
                     Not set

@@ -12,7 +12,7 @@
                 @if ( Auth::user()->birthday )
                     <?php
                     $bday = new DateTime(Auth::user()->birthday);
-                    echo date_format($bday, 'jS F Y');
+                    echo date_format($bday, 'jS F');
                     ?>
                 @else
                     Not set (<a href="{{ route('account-settings') }}">set here</a>)
