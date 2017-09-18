@@ -259,14 +259,16 @@
     <!-- Password -->
     <div class="settings_item">
         <span class="s_label">Password</span>
-        <span v-if="!isEditingPword">
-            <span>Change Password</span>
-        <button id="editPassword" class="plainButton pull-right" @click.prevent="onEditPword">
+        <span v-if="!isEditingPword" >
+            <span v-if="userInfo['provider'] == 'email'">Change Password</span>
+            <span v-else>Edit Disabled <span data-toggle="popover" title="" data-content="This account is connected with Facebook." class="label label-info" data-original-title="Edit Disabled">?</span></span>
+
+        <button id="editPassword" class="plainButton pull-right" @click.prevent="onEditPword" v-if="userInfo['provider'] == 'email'" >
                 <i class="fa fa-pencil" aria-hidden="true"></i> Edit
             </button>
         </span>
         <span v-else>
-                <form method="post" enctype="multipart/form-data" @submit.prevent="onSavePword" class="form-horizontal" role="form">
+                <form method="post" enctype="multipart/form-data" @submit.prevent="onSavePword" class="form-horizontal" role="form" v-if="userInfo['provider'] == 'email'">
                 <div class="form-group">
                     <label class="s_label">Existing Password </label>
                     <input type="password" name="existing_password" value="" v-model="existing_password" class="form-control" v-validate="'required'"/>
@@ -305,13 +307,14 @@
     <div class="settings_item">
         <span class="s_label">Change e-mail</span>
         <span v-if="!isEditingEmail">
-            <span><strong>{{ userInfo['email'] }}</strong></span>
-        <button id="editEmail" class="plainButton pull-right" @click.prevent="onEditEmail">
+            <span v-if="userInfo['provider'] == 'email'"><strong>{{ userInfo['email'] }}</strong></span>
+            <span v-else>Edit disabled <span data-toggle="popover" title="" data-content="This account is connected with Facebook." class="label label-info" data-original-title="Edit Disabled">?</span></span>
+        <button id="editEmail" class="plainButton pull-right" @click.prevent="onEditEmail" v-if="userInfo['provider'] == 'email'">
                 <i class="fa fa-pencil" aria-hidden="true"></i> Edit
             </button>
         </span>
         <span v-else>
-                <form method="post" enctype="multipart/form-data" v-on:submit.prevent="onSaveEmail" class="form-horizontal" role="form">
+                <form method="post" enctype="multipart/form-data" v-on:submit.prevent="onSaveEmail" class="form-horizontal" role="form" v-if="userInfo['provider'] == 'email'">
                 <div class="form-group">
                 <input type="email"
                        class="form-control"
@@ -335,33 +338,6 @@
             </form>
             </span>
     </div>
-    <!-- delete -->
-    <!--<div class="settings_item">
-        <span class="s_label">Permanently delete account</span>
-        <button class="btn btn-xs btn-danger pull-right" @click.prevent="onAttemptDelete">Delete Account</button>
-        <span v-if="attemptDelete">
-            <div class="alert alert-danger" role="alert">
-                <strong>Warning:</strong>
-                <p>This action will permanently delete your account and all your data.</p>
-                <p>We need to confirm the deletion of your account by entering your password.</p>
-                <hr>
-                <form method="post" enctype="multipart/form-data" v-on:submit.prevent="onDeleteAccount" class="form-horizontal" role="form" autocomplete="off">
-                    <div class="form-group">
-                        <label class="s_label">Password: </label>
-                        <input type="password" name="user_password" v-model="user_password" class="form-control" required/>
-                    </div>
-                    <div v-if="pword_incorrect">
-                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Incorrect password, please try again!
-                    </div>
-                    <hr>
-                    <div style="text-align: center">
-                        <button type="submit" class="btn btn-xs btn-danger">Permanently delete my account</button>
-                        <button type="button" class="btn btn-xs btn-default" @click.prevent="onCancelDelete">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </span>
-    </div>-->
 </div>
 </template>
 <script>
