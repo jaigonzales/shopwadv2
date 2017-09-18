@@ -40,7 +40,7 @@
                     {{ $friends->links() }}
                 </div>
                 @else
-                    <h4 class="text-center">You have no friends yet.</h4>
+                    <h4 class="text-center">No fellow shoppers yet.</h4>
                 @endif
             </div>
         </div>
