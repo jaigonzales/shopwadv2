@@ -2,12 +2,10 @@
 @section('content')
 <div class="content">
     <section id="homepage-slide">
-        <div id="welcomebg">
-            <img src="https://res.cloudinary.com/dxjpawbvm/image/upload/v1505523861/img/welcomebg.png">
-        </div>
+
         <div class="container" style="height: 100%">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8 col-md-offset-2 text-center">
                     <h1 class="tag-line">Create and share your shoplists with your friends!</h1>
                     <h3>Get started and join the fun in shopping!</h3>
                     <br />
@@ -26,6 +24,9 @@
             </div>
         </div>
     </section>
+    <div id="welcomebg_id">
+        <img src="https://res.cloudinary.com/dxjpawbvm/image/upload/v1505778377/img/background.png">
+    </div>
     <section id="homepage-dedatils">
         <div class="container">
             <div class="text-center">

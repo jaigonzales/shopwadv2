@@ -48,26 +48,22 @@
             font-size: 1.6em;
             font-weight: 700;
         }
-        #welcomebg{
-            position: absolute;
+        #welcomebg_id{
             width: 100%;
-            height: 100vh;
+            overflow: hidden;
         }
-        #welcomebg img{
+        #welcomebg_id img{
             width: 100%;
             height: auto;
         }
         #homepage-slide{
             margin-top: 40px;
             position: relative;
-            height: 100%;
-            height: 100vh;
         }
         #homepage-slide .content{
             height: inherit;
         }
         #homepage-dedatils{
-            background: #fff;
             position: relative;
             z-index: 999;
             padding-top: 80px;
@@ -86,12 +82,25 @@
             text-align: center;
             background: #f3f3f3;
         }
+        @media only screen and (max-width : 320px) {
+            .tag-line{
+                font-size: 2em;
+            }
+            #welcomebg{
+                top: 282px;
+                left: 0;
+            }
+            #welcomebg img {
+                width: 200%;
+                margin-left: -50%;
+            }
+        }
         @media only screen and (min-width : 320px) {
             .tag-line{
                 font-size: 2em;
             }
             #welcomebg{
-                top: 200px;
+                top: 282px;
                 left: 0;
             }
         }
@@ -102,7 +111,7 @@
                 font-size: 3em;
             }
             #welcomebg{
-                top: 180px;
+                top: 320px;
                 left: 0;
             }
         }
@@ -116,9 +125,10 @@
                 font-size: 3.4em;
             }
             #welcomebg{
-                top: 140px;
+                top: 280px;
                 left: 0;
             }
+
         }
 
         @media only screen and ( min-width: 992px){
@@ -126,25 +136,25 @@
                 font-size: 3.7em;
             }
             #welcomebg{
-                top: 90px;
+                top: 390px;
                 left: 0;
             }
         }
         @media only screen and ( min-width: 1024px ){
             #welcomebg{
-                top: 80px;
+                top: 344px;
                 left: 0;
             }
         }
         @media only screen and ( min-width: 1200px){
             #welcomebg{
-                top: 0;
+                top: 214px;
                 left: 0;
             }
         }
         @media only screen and ( min-width: 1440px){
             #welcomebg{
-                top: 0;
+                top: 194px;
                 left: 0;
             }
         }
