@@ -6,8 +6,8 @@
         <div class="container" style="height: 100%">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
-                    <h1 class="tag-line">Create and share your shoplists with your friends!</h1>
-                    <h3>Get started and join the fun in shopping!</h3>
+                    <h1 class="tag-line">Where Every Gift Is A Hit!</h1>
+                    <h3>Join the fun in shopping and share your list with anyone!</h3>
                     <br />
                     @if ( Auth::guest() )
                         <a href="{{ route('register') }}" class="btn btn-xl btn-red-outline">
