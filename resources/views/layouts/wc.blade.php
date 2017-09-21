@@ -10,9 +10,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- SEO Meta -->
-    <meta name="description" content="Create and share your shoplist with your friends!"/>
+    <meta name="description" content="Where Every Gift Is A Hit!"/>
     <meta name="keywords" content="shop, list, friends, share, shoplist, wishlist, app"/>
-    <meta name="DC.title" content="Create and share your shoplist with your friends!"/>
+    <meta name="DC.title" content="Where Every Gift Is A Hit!"/>
     <!-- Facebook Graph -->
 
     <meta property="og:url" content="http://www.shopwad.com">
@@ -25,7 +25,7 @@
     <meta property="og:image" content="http://www.shopwad.com/images/sc/thumb.jpg">
 
 
-    <title>{{ config('app.name', 'Shop Wad') }}</title>
+    <title>{{ config('app.name', 'Shop Wad') }} - Where Every Gift Is A Hit!</title>
 
     <!-- Styles -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
