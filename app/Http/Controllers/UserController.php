@@ -135,4 +135,8 @@ class UserController extends Controller
 
         return response()->json(['user' => $user], 200);
     }
+
+    public function pShoplistShared(){
+        return view('user.pshoplist');
+    }
 }
