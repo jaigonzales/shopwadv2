@@ -38,6 +38,11 @@
                     <li>
                         <a :href="twitterShare"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a>
                     </li>
+                    <li>
+                        <a :href="emailBody">
+                            <i class="fa fa-envelope" aria-hidden="true"></i> Email
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -111,7 +116,8 @@ export default {
             editPrivacy: this.li.privacy,
             _shDateCreated: '',
             shareLink: host + '/p_shoplist?pid=' + this.userid + '&swid=' + this.li.id,
-            twitterShare: 'https://twitter.com/intent/tweet?text=I%20created%20a%20shoplist!%20Check%20it%20out!%20http%3A//www.shopwad.com/p_shoplist?pid=' + this.userid + '%26swid=' + this.li.id
+            twitterShare: 'https://twitter.com/intent/tweet?text=I%20created%20a%20shoplist!%20Check%20it%20out!%20http%3A//www.shopwad.com/p_shoplist?pid=' + this.userid + '%26swid=' + this.li.id,
+            emailBody: 'mailto:?Subject=Check%20out%20my%20shoplist%21&Body=' + this.li.title + '%20Shoplist%0ASee%20it%20here%3A%20http%3A//www.shopwad.com/p_shoplist?pid=' + this.userid + '%26swid=' + this.li.id + '%0A%0AShop%20Wad%20-%20Where%20Every%20Gift%20Is%20A%20Hit%21%0AJoin%20the%20fun%20in%20shopping%20and%20share%20your%20list%20with%20anyone%21%0Ahttp%3A//www.shopwad.com%0A%0A'
         }
     },
     mounted: function(){
