@@ -41,6 +41,7 @@
     </script>
 </head>
 <body>
+@include('includes.g_analyticstracking')
 <!-- Load Facebook SDK for JavaScript -->
 <script>
 

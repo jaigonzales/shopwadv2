@@ -171,6 +171,7 @@
         </script>
 </head>
 <body>
+@include('includes.g_analyticstracking')
 <script>
     window.fbAsyncInit = function () {
         FB.init({
