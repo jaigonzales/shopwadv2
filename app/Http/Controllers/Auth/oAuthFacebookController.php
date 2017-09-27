@@ -28,7 +28,7 @@ class oAuthFacebookController extends Controller
             ])->stateless()->user();
 
         } catch (Exception $e) {
-            return redirect('/');
+            return redirect('/login');
         }
 
         $authUser = $this->createOrGetUser($user);
