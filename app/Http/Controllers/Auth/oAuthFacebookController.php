@@ -19,15 +19,20 @@ class oAuthFacebookController extends Controller
         return Socialite::driver('facebook')->redirect();
     }
 
-    public function callback()
+    public function callback(Request $request)
     {
 
+        if (!$request->has('code') || $request->has('denied')) {
+            return redirect('/');
+        }
+
         try {
+
             $user = Socialite::driver('facebook')->fields([
                 'first_name', 'last_name', 'email', 'picture{url}', 'gender'
             ])->stateless()->user();
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return redirect('/login');
         }
 
