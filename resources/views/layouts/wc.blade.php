@@ -193,7 +193,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="notification-bar text-center" style="top: 0px! important">
+<div class="notification-bar text-center" style="top: 0px !important">
     <p>
         <i class="fa fa-exclamation-circle" aria-hidden="true"></i> We upgraded our website. We advise our users to clear all the browser's cache and cookies.
     </p>
