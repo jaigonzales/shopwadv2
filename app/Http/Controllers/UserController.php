@@ -65,7 +65,7 @@ class UserController extends Controller
 
 
                 $user = User::find(\Request::query('pid'));
-                $getAllFriends = $user->getFriends();
+                $getAllFriends = $user->getFriends(16);
 
                 $getFriendsTotal = $user->getFriendsCount();
 
@@ -111,7 +111,7 @@ class UserController extends Controller
 
             $products = $product->paginate(5);
 
-            $getAllFriends = $user->getFriends();
+            $getAllFriends = $user->getFriends(16);
 
             $getFriendsCount = $user->getFriendsCount();
 
