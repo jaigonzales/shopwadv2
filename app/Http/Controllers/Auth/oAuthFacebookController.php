@@ -32,15 +32,15 @@ class oAuthFacebookController extends Controller
                 'first_name', 'last_name', 'email', 'picture{url}', 'gender'
             ])->stateless()->user();
 
+            $authUser = $this->createOrGetUser($user);
+
+            Auth::login($authUser, true);
+
+            return redirect($this->redirectTo);
+
         } catch (\Exception $e) {
-            return redirect('/login');
+            return redirect('/login')->with('error', 'E-mail already exists using regular registration.');
         }
-
-        $authUser = $this->createOrGetUser($user);
-
-        Auth::login($authUser, true);
-
-        return redirect($this->redirectTo);
 
     }
 

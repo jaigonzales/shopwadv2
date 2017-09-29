@@ -8,7 +8,14 @@
                         <div class="m-b-md">
                             <h3 class="form-headers">Log in</h3>
                         </div>
+
                         <div class="m-b-md">
+                            @if ($message = Session::get('error'))
+                                <div class="alert alert-danger alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @endif
                             <div style="text-align: center">
                                 <a href="/auth/facebook" class="btn btn-facebook btn-outline btn-lg btn-block"><i
                                             class="fa fa-facebook" aria-hidden="true" style="margin-right: 10px"></i>
@@ -21,6 +28,7 @@
                                 <span>or</span>
                             </div>
                         </div>
+
                         <div class="m-b-md">
                             @if(Session::has('alert'))
                                 <div class="alert alert-success">
