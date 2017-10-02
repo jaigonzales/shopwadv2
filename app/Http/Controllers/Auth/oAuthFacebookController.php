@@ -29,7 +29,10 @@ class oAuthFacebookController extends Controller
         try {
 
             $user = Socialite::driver('facebook')->fields([
-                'first_name', 'last_name', 'email', 'picture{url}', 'gender'
+                'id', 'first_name', 'last_name', 'email', 'picture{url}', 'gender'
+            ])->scopes([
+                'email',
+                'user_birthday'
             ])->stateless()->user();
 
             $authUser = $this->createOrGetUser($user);
@@ -39,8 +42,8 @@ class oAuthFacebookController extends Controller
             return redirect($this->redirectTo);
 
         } catch (\Exception $e) {
-            return $e->getMessage();
-//            return redirect('/login')->with('error', 'E-mail already exists using regular registration.');
+//            return $e->getMessage();
+            return redirect('/login')->with('error', 'E-mail already exists using regular registration.');
         }
 
     }
@@ -53,7 +56,18 @@ class oAuthFacebookController extends Controller
             return $authUser;
         }
 
-        return User::create([
+        if ($facebookUser->email == null || $facebookUser->email == "") {
+            return User::create([
+                'firstname' => $facebookUser->user['first_name'],
+                'lastname' => $facebookUser->user['last_name'],
+                'email' => $facebookUser->id,
+                'avatar' => $facebookUser->avatar_original,
+                'gender' => $facebookUser->user['gender'],
+                'provider_user_id' => $facebookUser->id,
+                'provider' => 'facebook'
+            ]);
+        }
+        return  User::create([
             'firstname' => $facebookUser->user['first_name'],
             'lastname' => $facebookUser->user['last_name'],
             'email' => $facebookUser->email,
