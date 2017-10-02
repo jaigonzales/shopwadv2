@@ -39,7 +39,8 @@ class oAuthFacebookController extends Controller
             return redirect($this->redirectTo);
 
         } catch (\Exception $e) {
-            return redirect('/login')->with('error', 'E-mail already exists using regular registration.');
+            return $e->getMessage();
+//            return redirect('/login')->with('error', 'E-mail already exists using regular registration.');
         }
 
     }
