@@ -30,9 +30,6 @@ class oAuthFacebookController extends Controller
 
             $user = Socialite::driver('facebook')->fields([
                 'id', 'first_name', 'last_name', 'email', 'picture{url}', 'gender'
-            ])->scopes([
-                'email',
-                'user_birthday'
             ])->stateless()->user();
 
             $authUser = $this->createOrGetUser($user);
